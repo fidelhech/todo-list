@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Todo List App</title>
+        <style type="text/css" src="css/style.css"></style>
+    </head>
+    <body ng-app="todoListApp">
+        <h1>Todo List App</h1>
+        <h2>Built with AngularJS</h2>
+        <div class="container" ng-controller="mainCtrl">
+            <ul class="items">
+                <li class="item" ng-repeat="todo in todos">
+                    <input type="checkbox" ng-model="todo.completed" ng-init="todo.completed=false" >
+                    <span class="title">{{ todo.title }}</span>
+                    <div>
+                        <a href="#">Save</a>
+                        <a href="#">Delete</a>
+                    </div>
+                </li>
+            </ul>
+            <pre>{{ todos | json }}</pre>
+        </div>
+        <script src="node_modules/angular/angular.min.js"></script>
+        <script src="scripts/app.js"></script>
+    </body>
+</html>
