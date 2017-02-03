@@ -3,23 +3,30 @@
     <head>
         <meta charset="utf-8">
         <title>Todo List App</title>
-        <style type="text/css" src="css/style.css"></style>
+        <link rel="stylesheet" href="styles/main.css" type="text/css">
     </head>
     <body ng-app="todoListApp">
-        <h1>Todo List App</h1>
-        <h2>Built with AngularJS</h2>
-        <div class="container" ng-controller="mainCtrl">
-            <ul class="items">
-                <li class="item" ng-repeat="todo in todos">
-                    <input type="checkbox" ng-model="todo.completed" ng-init="todo.completed=false" >
-                    <span class="title">{{ todo.title }}</span>
-                    <div>
-                        <a href="#">Save</a>
-                        <a href="#">Delete</a>
-                    </div>
-                </li>
-            </ul>
-            <pre>{{ todos | json }}</pre>
+        <div class="wrapper">
+            <h1>Todo List App</h1>
+            <h2>Built with AngularJS</h2>
+            <div class="container" ng-controller="mainCtrl">
+                <ul class="items">
+                    <li class="item add-todo">
+                        <input ng-model="newTodo.title" type="text">
+                        <a href="javascript:void(0)" ng-click="addTodo(newTodo.title)">+ Add new Todo</a>
+                    </li>
+                    <li class="item" ng-repeat="todo in todos | orderBy: 'completed'">
+                        <input type="checkbox" ng-model="todo.completed" ng-init="todo.completed = false" >
+                        <span class="title" ng-hide="editing" ng-click="editing = !editing" ng-class="{completed : todo.completed}">{{ todo.title }}</span>
+                        <input ng-model="todo.title" ng-show="editing" type="text" ng-blur="editing = false">
+                        <div>
+                            <a href="javascript:void(0)" ng-click="saveTodo(todo)">Save</a>
+                            <a href="javascript:void(0)" ng-click="deleteTodo(todo, $index)">Delete</a>
+                        </div>
+                    </li>
+                </ul>
+                <pre>{{ todos | json }}</pre>
+            </div>
         </div>
         <script src="node_modules/angular/angular.min.js"></script>
         <script src="scripts/app.js"></script>

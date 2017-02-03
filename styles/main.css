@@ -1,0 +1,31 @@
+body {
+    padding: 10%;
+}
+.container {
+    border: 3px solid #eee;
+    box-sizing: border-box;
+    padding: 1%;
+}
+.items {
+    display: block;
+    padding: 0;
+}
+.item {
+    border-bottom: 3px solid #eee;
+    display: flex;
+    overflow: hidden;
+    padding: 1% 1%;
+}
+.item input {
+    width: 5%;
+}
+.item span, .item input[type="text"] {
+    width: 70%;
+}
+.item div {
+    text-align: center;
+    width: 25%;
+}
+.item span.completed {
+    text-decoration: line-through;
+}
