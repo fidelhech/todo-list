@@ -1,5 +1,26 @@
 body {
-    padding: 10%;
+    font-family: Arial;
+    color: #444;
+}
+.wrapper {
+    max-width: 900px;
+    margin: 0 auto;
+}
+h1, h2 {
+    font-family: Arial;
+    text-align: center;
+}
+h1 {
+    font-size: 1.5em;
+    margin: 1em 0 0;
+    color: #245fa8;
+    text-transform: uppercase;
+}
+h2 {
+    color: #4a7ab5;
+    font-weight: normal;
+    font-size: 1em;
+    margin: 0 0 1em;
 }
 .container {
     border: 3px solid #eee;
@@ -13,8 +34,10 @@ body {
 .item {
     border-bottom: 3px solid #eee;
     display: flex;
+    justify-content: space-around;
     overflow: hidden;
     padding: 1% 1%;
+    align-items: center;
 }
 .item input {
     width: 5%;
@@ -22,10 +45,36 @@ body {
 .item span, .item input[type="text"] {
     width: 70%;
 }
+.item input[type="text"] {
+    border: 2px solid #ddd;
+    padding: 1%;
+    color: #666;
+    font-family: Arial;
+}
 .item div {
     text-align: center;
     width: 25%;
 }
+a {
+    border: 2px solid;
+    padding: 1% 5%;
+    text-decoration: none;
+    color: #4a7ab5;
+}
 .item span.completed {
     text-decoration: line-through;
+}
+.add-todo {
+    padding: 2% 1% 5%;
+}
+.add-todo a {
+    width: 20%;
+    background-color: #4a7ab5;
+    padding: 1%;
+    text-align: center;
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-family: Arial;
 }
